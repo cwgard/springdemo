@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cw</groupId>
-	<artifactId>springdemo</artifactId>
+	<artifactId>springstudentapi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springdemo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>springstudentapi</name>
+	<description>API to manage students in database</description>
 	<properties>
 		<java.version>17</java.version>
 		<maven.compiler.source>17</maven.compiler.source>
