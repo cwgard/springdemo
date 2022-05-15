@@ -3,6 +3,7 @@ package com.cw.springdemo.student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,6 +27,25 @@ public class StudentService {
         if (studentOptional.isPresent()) {
             throw new IllegalStateException("Email already exists");
         }
+        studentRepository.save(student);
+    }
+
+    public void deleteStudent(Long studentId) {
+        boolean exists = studentRepository.existsById(studentId);
+        if (!exists) {
+            throw new IllegalStateException("Student with id " + studentId + " does not exist");
+        }
+
+        studentRepository.deleteById(studentId);
+    }
+
+    @Transactional
+    public void updateStudent(Long studentId, Student student) {
+        boolean exists = studentRepository.existsById(studentId);
+        if (!exists) {
+            throw new IllegalStateException("Student with id " + studentId + " does not exist");
+        }
+
         studentRepository.save(student);
     }
 }
